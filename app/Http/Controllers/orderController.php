@@ -6,6 +6,7 @@ use App\Models\Chocolate;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use function PHPUnit\Framework\returnArgument;
 
 class orderController extends Controller
 {
@@ -31,5 +32,10 @@ class orderController extends Controller
         'all_price' => $total_price
        ]);
        return response()->json(['success' => true, 'message' => 'Sikeres rendelés'], 200, options: JSON_UNESCAPED_UNICODE);
+    }
+
+    public function index(){
+        $orders = Order::all();
+        return response()->json($orders, 200, options: JSON_UNESCAPED_UNICODE);
     }
 }
