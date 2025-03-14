@@ -17,7 +17,7 @@ class ChocolateController extends Controller
                 "expiry_date"=>'required|date|after_or_equal:today'
             ]);
         } catch (ValidationException $e) {
-            return response()->json(['success'=>false,'error'=>$e->getMessage()]);
+            return response()->json(['success'=>false,'message'=>$e->getMessage()]);
         }
         
 
